@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EmoViz</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='display.css')}}" />
+    <link rel="icon" href="{{url_for('static',filename='eye.png')}}" type="image/png" />
+
+    <script>
+        function check() {
+            var p = document.getElementById("empf");
+            if (p.files.length == 0) {
+                alert("Please upload video");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+    <style>
+        .card {
+            position: relative;
+            top: 50px;
+            left: 5%;
+            right: 70%;
+            height: 450px;
+            width: 40%;
+        }
+        
+        body {
+            background-image: url("/static/4.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="righttopcontainer">
+        <a href="{{url_for('home')}}"><button class="glow-on-hover">HOME</button></a
+      >
+    </div>
+    <h1 style="text-align: center; color: white">UPLOAD A VIDEO</h1>
+    <div class="card" style="left: 500px; top: 100px">
+      <form
+        action="/detectvideo"
+        method="post"
+        enctype="multipart/form-data"
+        onsubmit="return check();"
+      >
+        <input
+          class="glow-on-hover"
+          id="empf"
+          type="file"
+          name="file"
+          accept="video/*"
+          style="left: 150px"
+        />
+        <br />
+        <br />
+        <!-- <input class="glow-on-hover" type="submit" value="Submit" /> -->
+        <button
+          class="glow-on-hover"
+          type="submit"
+          value="Submit"
+          style="left: 150px; top: 50px"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

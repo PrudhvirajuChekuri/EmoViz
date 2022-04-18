@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EmoViz</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='display.css')}}" />
+    <link rel="icon" href="{{url_for('static',filename='eye.png')}}" type="image/png" />
+
+    <style>
+      body {
+          background-image: url("/static/6.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          height: 100%;
+      }
+    </style>
+</head>
+
+<body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            $(function() {
+              $("a#test").on('click', function(e) {
+                e.preventDefault()
+                $.getJSON('/picdelete',
+                    function(data) {
+                });
+                return false;
+              });
+            });
+    </script>
+    <div class='righttopcontainer'>
+          <a id=test><button class='glow-on-hover' onclick="location.href='https://emoviz.biz/';"
+            >HOME</button></a>
+    </div>
+
+    <video width="640" height="360" controls autoplay>
+        <source src="static/{{pred}}" type="video/mp4">
+        Not supported.
+      </video>
+      <br><br>
+      <a href="static/{{pred}}" download 
+      ><button class="glow-on-hover">DOWNLOAD</button></a
+    >
+  </body>
+</html>

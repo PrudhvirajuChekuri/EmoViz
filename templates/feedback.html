@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FEEDBACK</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='display.css')}}" />
+    <link rel="icon" href="{{url_for('static',filename='eye.png')}}" type="image/png" />
+
+    <style>
+        body {
+            background-image: url("/static/feedbackb.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+    <script>
+        function feedhandler() {
+            var name = document.forms["feedbackform"]["name"];
+            var email = document.forms["feedbackform"]["email"];
+            var comments = document.forms["feedbackform"]["comments"];
+
+            if (name.value == "") {
+                window.alert("Please enter your name.");
+                name.focus();
+                return false;
+            } else if (email.value == "") {
+                window.alert("Please enter a valid e-mail address.");
+                email.focus();
+                return false;
+            } else if (comments.value == "") {
+                window.alert("Please enter your comment.");
+                comments.focus();
+                return false;
+            } else if (
+                email.value != "" &&
+                name.value != "" &&
+                comments.value != ""
+            ) {
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body style="align-items: center">
+    <div class="righttopcontainer">
+        <a href="{{url_for('home')}}"><button class="glow-on-hover">HOME</button></a
+      >
+    </div>
+    <div style="padding-top: 100px">
+      <form
+        name="feedbackform"
+        action="/sentsafe"
+        onsubmit="return feedhandler()"
+        method="POST"
+        style="padding-left: 500px"
+      >
+        Your name: <br />
+        <input type="text" name="name" /><br />
+        <br />
+        Your email: <br />
+        <input type="text" name="email" /><br />
+        <br />
+        Your comments: <br />
+        <textarea name="comments" rows="10" cols="50"></textarea><br /><br />
+        <button class="glow-on-hover" type="submit" value="Submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

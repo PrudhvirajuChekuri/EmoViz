@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EmoViz</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='display.css')}}" />
+    <link rel="icon" href="{{url_for('static',filename='eye.png')}}" type="image/png" />
+
+    <style>
+        body {
+            background-image: url("/static/Homeb.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+        .flex-container{
+          display:flex;
+          flex-direction: column;
+          justify-content:center;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+      <li style="float: left;"><img style="height: 3em;width: 5em;padding-top: 0.2em;"src="{{url_for('static',filename='eye1.png')}}"/></li>
+      <li style="float: left;font-size: 3em;font-weight: bolder;padding-left: 0.2em;color: rgb(7, 56, 75); text-align: center;text-shadow: 2px 2px rgb(91, 156, 165)">EmoViz</li>
+        <li style="float: right">
+            <a href="{{url_for('feedback')}}">Feedback</a>
+        </li>
+    </ul>
+    <div style="padding-top: 5.5em">
+        <h1 style="color: rgb(255, 255, 255); text-align: center;text-shadow: 2px 2px rgb(75, 146, 179)">
+            FACIAL EMOTION DETECTOR
+        </h1>
+
+        <div class="flex-container" >
+
+            <div class="cardhome">
+                <div style="text-align: center; padding-top:3em">
+                    <a href="{{url_for( 'webcam')}} "><button class="glow-on-hover">
+                      LIVE EMOTION
+                <div class="tooltip">
+                  ?<span class="tooltiptext"
+                    >TO GET LIVE FACIAL EMOTION DETECTION THROUGH WEBCAM</span
+                  >
+                </div>
+              </button></a
+            >
+          </div>
+        </div>
+
+        <div class="cardhome">
+          <div style="text-align: center; padding-top:3.5em">
+            <a href="{{url_for( 'picdetect')}} "
+              ><button class="glow-on-hover">
+                UPLOAD A PIC
+                <div class="tooltip">
+                  ?<span class="tooltiptext"
+                    >TO GET FACIAL EMOTION DETECTION FOR CUSTOM IMAGE</span
+                  >
+                </div>
+              </button></a
+            >
+          </div>
+        </div>
+
+	<div class="cardhome">
+          <div style="text-align: center; padding-top:4em">
+            <a href="{{url_for( 'video')}} "><button class="glow-on-hover">
+                UPLOAD A VIDEO
+                <div class="tooltip">
+                  ?<span class="tooltiptext"
+                    >TO GET FACIAL EMOTION DETECTION FOR CUSTOM VIDEO</span
+                  >
+                </div>
+              </button></a
+            >
+          </div>
+        </div>
+
+      </div>
+      <div style="padding-top:13em; padding-left:5em; font-weight: bolder;">
+        <footer>Want to create models like this? Check my <a href= "https://emoviz.biz">github</a>.</footer>
+      </div>
+    </div>
+  </body>
+</html>
