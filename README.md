@@ -1,4 +1,4 @@
-# EmoViz(Facial Emotion Detector)  🙂😀😮😤😒😔😨
+# EmoViz(Facial Emotion Detector)🙂😀😮😤😒😔😨
 
 https://user-images.githubusercontent.com/96725900/164004710-2fbaaa02-fe4f-4645-b08d-d1426139ced5.mp4
 
