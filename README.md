@@ -4,9 +4,41 @@ https://user-images.githubusercontent.com/96725900/164004710-2fbaaa02-fe4f-4645-
 
 ![7Emotions](https://user-images.githubusercontent.com/96725900/163942354-e7befdcc-1772-4877-b271-bab3d5c9eabf.png)
 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#Description">Description</a></li>
+    <li>
+      <a href="#About the Models">About the Models</a>
+      <ul>
+        <li><a href="#Face Detector">Face Detector</a></li>
+      </ul>
+      <ul>
+        <li><a href="#Facial Emotion Classifier">Facial Emotion Classifier</a></li>
+      </ul>
+      <ul>
+        <li><a href="#How it works">How it works</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#Installation">Installation</a>
+      <ul>
+        <li><a href="#Requirements">Requirements</a></li>
+        <li><a href="#Setup">Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#Inference">Inference</a></li>
+    <li><a href="#License">License</a></li>
+    <li><a href="#Credits">Credits</a></li>
+  </ol>
+</details>
+
 # 📝Description
 
 Facial Emotion Detection is one of the useful and toughest Machine Learning tasks because of the intra-class variation in expressions among the people. The best usecase of FED is in human-machine interaction. EmoViz is a facial emotion detection system built using TensorFlow, which takes image input and display one of the seven emotions(Neutral, Happy, Surprise, Angry, Disgust, Sad, Fear).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 # 🤖About the Models
 
@@ -31,6 +63,8 @@ The system employs two models: one for face detection and another for facial emo
 
 The input image is first given to the face detector to detect the face and then this is given to the facial emotion classifier to classify the emotion.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 # 🖥Installation
 
 ## 🛠Requirements
@@ -43,13 +77,21 @@ The input image is first given to the face detector to detect the face and then 
 pip install -r requirements.txt
 ```
 That's it you're set to go.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 # 🎯Inference
 ```
 python app.py
 ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 # License
 Distributed under the MIT License. See LICENSE.txt for more information.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 # Credits
 * http://www.whdeng.cn/raf/li_RAFDB_2017_CVPR.pdf
+
+<p align="right">(<a href="#top">back to top</a>)</p>
