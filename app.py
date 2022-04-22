@@ -21,8 +21,8 @@ app.config["DEBUG"] = True
 socketio = SocketIO(app)
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-detect_fn = tf.saved_model.load("Models/FaceDetector/saved_model")
-model = tf.keras.models.load_model("Models/FEC")
+detect_fn = tf.saved_model.load("Models/FaceDetector/saved_model")#Load the face detector
+model = tf.keras.models.load_model("Models/FEC")#Load the facial emotion classifier
 
 class_names = ['Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'mp4'}
@@ -32,6 +32,8 @@ static_files = ['Aboutb.jpg', 'cam.jpg', 'Classifyb.jpg', 'Classifydoneb.jpg', '
 
 @app.route('/picdelete')
 def picdelete():
+    #When this function is called all the files that are not present in the
+    #list static_files will be deleted.
     for file in os.listdir("static"):
         if file not in static_files:
             os.remove(f"static/{file}")
@@ -70,6 +72,7 @@ def bound(boxes, scores, h, w):
     return signs
 
 def draw_bounding_box(frame, detect_fn):
+    #Returns the coordinates of the bounding boxes.
     input_tensor = tf.convert_to_tensor(frame)
     input_tensor = input_tensor[tf.newaxis, ...]
     detections = detect_fn(input_tensor)
@@ -89,18 +92,21 @@ def detectandupdate(img):
     image = cv2.imread(path)
     coordinates = draw_bounding_box(image, detect_fn)
 
+    #Loop over the each bounding box.
     for (y, h, x, w) in coordinates:
         cv2.rectangle(image,(x,y),(w, h),(0, 255, 0),2)
-        img2 = image[y:h, x:w]
-        img2 = tf.image.resize(img2, size = [128, 128])
+        img2 = image[y:h, x:w]#Get the face from the image with this trick.
+        img2 = tf.image.resize(img2, size = [128, 128])#Input for the model should have size-(128,128)
         pred = model.predict(tf.expand_dims(img2, axis=0))
         pred_class = class_names[tf.argmax(pred, axis = 1).numpy()[0]]
+        #These conditions are just added to draw text clearly when the head is so close to the top of the image. 
         if x > 20 and y > 40:
             cv2.putText(image, pred_class, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         else:
             cv2.putText(image, pred_class, (x + 10, y + 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     path2 = f"static/pred{img}"
+    #Save as predimg_name in static.
     cv2.imwrite(path2, image)
 
 
@@ -144,8 +150,10 @@ def send_sentsafe():
 def handleMessage(input):
     input = input.split(",")[1]
     image_data = input
+    #Since the input frame is in the form of string we need to convert it into array.
     im = Image.open(BytesIO(base64.b64decode(image_data)))
     im = np.asarray(im)
+    #process it.
     coordinates = draw_bounding_box(im, detect_fn)
     for (y, h, x, w) in coordinates:
         cv2.rectangle(im,(x,y),(w, h),(0, 255, 0),2)
@@ -154,6 +162,7 @@ def handleMessage(input):
         pred = model.predict(tf.expand_dims(img, axis=0))
         pred_class = class_names[tf.argmax(pred, axis = 1).numpy()[0]]
         cv2.putText(im, pred_class, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    #Convert it back into string.
     im = Image.fromarray(im)
     buff = BytesIO()
     im.save(buff, format="JPEG")
@@ -165,7 +174,7 @@ def detectandupdatevideo(video):
     output_path = f"static/pred{video}"
     fourcc = cv2.VideoWriter_fourcc(*'h264')
     out = cv2.VideoWriter(output_path, fourcc, 25.0, (640, 360))
-
+    #using Videowriter to save the processed frames as a video.
     vidcap = cv2.VideoCapture(f"static/{video}")
 
 

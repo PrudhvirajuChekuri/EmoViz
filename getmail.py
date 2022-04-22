@@ -3,7 +3,7 @@ import smtplib, ssl
 def send_mail(sender_email, content):
 
     port = 465  # For SSL
-    receiver_email = "your_email"
+    receiver_email = "your_email"#Change the credentials.
     password = "your_password"
 
     # Create a secure SSL context
