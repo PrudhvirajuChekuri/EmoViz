@@ -26,9 +26,8 @@ model = tf.keras.models.load_model("Models/FEC")#Load the facial emotion classif
 
 class_names = ['Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'mp4'}
-static_files = ['Aboutb.jpg', 'cam.jpg', 'Classifyb.jpg', 'Classifydoneb.jpg', 'Detectb.jpg', 'Detectdoneb.jpg',
-                'display.css', 'eye.png', 'eye1.png', 'feedbackb.jpg', 'Homeb.jpg', 'loading-page.gif',
-                'Picdetectb.jpg', 'Picuploadb.jpg', 'thumbsup.jpg', '4.jpg', '6.png']
+static_files = ['display.css', 'eye.png', 'Picdetectb.jpg', 'thumbsup.jpg', 
+                'github.png', 'IU.svg', 'UI.svg', 'RT.svg', 'UV.svg', 'VU.svg', 'feedback.svg']
 
 @app.route('/picdelete')
 def picdelete():
