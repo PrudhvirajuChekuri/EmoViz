@@ -5,3 +5,4 @@ opencv_python==4.5.4.60
 Pillow==9.1.0
 tensorflow==2.7.0
 Werkzeug==2.0.2
+eventlet
