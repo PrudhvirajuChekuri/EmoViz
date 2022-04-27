@@ -2,22 +2,62 @@
 <html lang="en">
 
 <head>
-    <title>EmoViz</title>
+    <title>EMOVIZ</title>
     <link rel="stylesheet" href="{{url_for('static',filename='display.css')}}" />
-    <link rel="icon" href="{{url_for('static',filename='eye.png')}}" type="image/png">
+    <link rel="icon" href="{{url_for('static',filename='eye.png')}}" type="image/png" />
 
+    <style>
+        body {
+            background-image: linear-gradient(90deg, #eeeeee, #eeeeee);
+        }
+        .flex-container{
+          display:flex;
+          flex-direction: column;
+          justify-content:center;
+        }
+    </style>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="righttopcontainer">
-        <a href="{{url_for('home')}}"><button class="glow-on-hover">HOME</button></a
-      >
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{url_for('home')}}">
+        <img class="img_logo" src="{{url_for('static',filename='eye.png')}}" alt="" srcset="">
+        <span class="content_nav">
+          EMOVIZ
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse feedback_" id="navbarNav">
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="btn btn-outline-primary" class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+          </li>
+        </ul>
+
+      </div>
     </div>
+  </nav>
+  <div>
     <h1 style="padding-left: 30%;">YOUR FEEDBACK SENT SUCCESSFULLY</h1>
     <div style="align-items: center;padding-left: 38%;">
         <img src=" {{url_for( 'static',filename='thumbsup.jpg' )}} "></img>
     </div>
+  </div>
 
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
 
+  </body>
 </html>
