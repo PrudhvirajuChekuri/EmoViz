@@ -90,7 +90,7 @@ Then you can use pip list to see what are all the packages installed and there w
 ```
 python -m pip install --upgrade pip
 ```
-Clone the DataGen repo and change the directory to EmoViz and run the below command.
+Clone the EmoViz repo and change the directory to EmoViz and run the below command.
 
 4. Install the required packages.
 ```
