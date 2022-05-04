@@ -60,7 +60,7 @@ The system employs two models: one for face detection and another for facial emo
 *  I'll create a separate repo on how to create a model like this, so if you're here then check my repos.
 *  RAF-DB is a private database and to download it you need to send an email as shown on their [website](http://www.whdeng.cn/raf/model1.html#:~:text=Real%2Dworld%20Affective%20Faces%20Database%20(RAF%2DDB)%20is,labeled%20by%20about%2040%20annotators.).
 *  First I'd started training the model on my local machine(GPU - GTX 1660ti), but when I started incresing the complexity of the model it took a lot of time to train and also started crying like a baby. 
-*  I can't experiment fastly, So I'had shifted to kaggle to train the model. I'had choosen kaggle over colab because of it's more gpu time and resources and it made experimentation faster.
+*  I can't experiment fastly, So I shifted to kaggle to train the model. I've choosen kaggle over colab because of it's more gpu time and resources and it made experimentation faster.
 
 ## How it works
 
